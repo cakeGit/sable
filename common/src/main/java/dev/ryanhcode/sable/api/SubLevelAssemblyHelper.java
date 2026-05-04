@@ -410,6 +410,15 @@ public class SubLevelAssemblyHelper {
             final BlockState subLevelState = Blocks.AIR.defaultBlockState();
             resultingLevel.sendBlockUpdated(block, Blocks.STONE.defaultBlockState(), subLevelState, 3);
         }
+
+        for (final BlockPos block : blocks) {
+            final BlockPos newPos = transform.apply(block);
+            final BlockState state = accelerator.getBlockState(newPos);
+
+            if (state.getBlock() instanceof final BlockSubLevelAssemblyListener listener) {
+                listener.afterAssemble(level, resultingLevel, state, block, newPos);
+            }
+        }
     }
 
     public static void markAndNotifyBlock(final Level level, final BlockPos pPos, @Nullable final LevelChunk levelchunk, final BlockState oldState, final BlockState newState, final int pFlags, final int pRecursionLeft) {

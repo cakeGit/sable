@@ -24,8 +24,6 @@ public interface BlockSubLevelAssemblyListener {
 
     }
 
-
-
     /**
      * Called after the {@link SubLevelAssemblyHelper} has moved a block of state newState from oldPos to newPos.
      * At this point in time during the move, the old block has not been removed.
@@ -37,5 +35,17 @@ public interface BlockSubLevelAssemblyListener {
      * @param newPos the new block position
      */
     void afterMove(ServerLevel originLevel, ServerLevel resultingLevel, BlockState newState, BlockPos oldPos, BlockPos newPos);
+
+    /**
+     * Called after the {@link SubLevelAssemblyHelper} has assembled the complete sublevel from oldPos to newPos.
+     * This means that blocks that were included in assembly have been moved.
+     *
+     * @param originLevel the level the block was moved from
+     * @param resultingLevel the level the block was moved to
+     * @param newState the new block state
+     * @param oldPos the old block position
+     * @param newPos the new block position
+     */
+    default void afterAssemble(ServerLevel originLevel, ServerLevel resultingLevel, BlockState newState, BlockPos oldPos, BlockPos newPos) {}
 
 }

@@ -159,6 +159,7 @@
     "compatibility.create.tracks.TrackPlacementMixin",
     "compatibility.create.turntable.TurntableBlockMixin",
     "compatibility.create.vertical_gearbox.VerticalGearboxItemMixin",
+    "compatibility.create.water_wheel_structure.WaterWheelStructuralBlockMixin",
     "compatibility.create.zapper.ZapperItemMixin",
     "compatibility.pmweather.AnemometerBlockEntityMixin",
     "compatibility.pmweather.AnemometerBlockMixin",
