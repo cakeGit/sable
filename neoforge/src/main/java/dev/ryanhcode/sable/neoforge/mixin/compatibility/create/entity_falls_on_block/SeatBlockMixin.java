@@ -9,7 +9,7 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Redirect;
 
 /**
- * Makes seats use the standing on position of entities instead of their block position for picking them up, as the
+ * Makes seats use the standing on position of entities instead of their block position for sitting them down, as the
  * on position of entities will be overwritten by Sable to be inside of the plot of a sub-level an entity is resting on
  */
 @Mixin(SeatBlock.class)
