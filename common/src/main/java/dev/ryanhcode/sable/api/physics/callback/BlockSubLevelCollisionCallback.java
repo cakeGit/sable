@@ -35,10 +35,22 @@ public interface BlockSubLevelCollisionCallback {
         return new double[]{motion.x(), motion.y(), motion.z(), result.removeCollision ? 1.0 : 0.0};
     }
 
+    /**
+     * Called when a collision occurs between two blocks, from JNI / pipeline implementations.
+     * <p>
+     * Legacy onCollision method for back-compatibility with older pipeline implementations.
+     * It is preferred you implement the fully qualified version {@link #sable$onCollision(BlockPos, Vector3d, BlockPos, Vector3d, double)} for new implementations.
+     * <p>
+     * Ignored if the fully qualified version is implemented.
+     * */
+    @Deprecated
     default CollisionResult sable$onCollision(final BlockPos blockPos, final Vector3d pos, final double impactVelocity) {
         return CollisionResult.NONE;
     }
 
+    /**
+     * Called when a collision occurs between two blocks, from JNI / pipeline implementations.
+     * */
     default CollisionResult sable$onCollision(final BlockPos blockPos, final Vector3d pos, final BlockPos otherBlockPos, final Vector3d otherPos, final double impactVelocity) {
         return this.sable$onCollision(blockPos, pos, impactVelocity);
     }
