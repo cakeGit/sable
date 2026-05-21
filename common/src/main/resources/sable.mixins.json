@@ -169,7 +169,6 @@
     "game_test.TestCommandMixin",
     "impact.BeehiveBlockMixin",
     "impact.BellBlockMixin",
-    "impact.StainedGlassBlockMixin",
     "impact.TntBlockMixin",
     "interaction_distance.EntityMixin",
     "interaction_distance.PlayerMixin",
